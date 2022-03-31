@@ -1,0 +1,1 @@
+Kubernetes homework tasks for EPAM DevOps lab Stream24 
