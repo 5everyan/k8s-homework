@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-canary
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: nginx-canary
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: nginx-canary
+    spec:
+      containers:
+      - name: nginx-canary
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+            - name: nginx-index-app2
+              mountPath: /usr/share/nginx/html/
+      volumes:
+      - name: nginx-index-app2
+        configMap:
+          name: index-v2-configmap
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-canary
+  labels:
+     name: nginx-canary
+spec:
+  selector:
+    app: nginx-canary
+  ports:
+    - port      : 80
+      protocol  : TCP
+      targetPort: 80
