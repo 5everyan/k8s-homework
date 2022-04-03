@@ -2,13 +2,13 @@ Homework Task 2.2
 
 Implement Canary deployment of an application via Ingress. Traffic to canary deployment should be redirected if you add "canary:always" in the header, otherwise it should go to regular deployment. Set to redirect a percentage of traffic to canary deployment.
 
-kubectl apply -f app-v1-configmap.yaml
-kubectl apply -f app-v1.yaml
-kubectl apply -f app-v1-ingress.yaml
+- kubectl apply -f app-v1-configmap.yaml
+- kubectl apply -f app-v1.yaml
+- kubectl apply -f app-v1-ingress.yaml
 
-kubectl apply -f app-v2-configmap.yaml
-kubectl apply -f app-v2.yaml
-kubectl apply -f app-v2-ingress.yaml
+- kubectl apply -f app-v2-configmap.yaml
+- kubectl apply -f app-v2.yaml
+- kubectl apply -f app-v2-ingress.yaml
 
 
 # Task 2
