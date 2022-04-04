@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+            - name: nginx-index-app1
+              mountPath: /usr/share/nginx/html/
+      volumes:
+      - name: nginx-index-app1
+        configMap:
+          name: index-v1-configmap
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+     name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port      : 80
+      protocol  : TCP
+      targetPort: 80
