@@ -11,6 +11,12 @@ Homework Task 3.1-3.2
 - kubectl apply -f minio-clusterip.yaml
 - kubectl apply -f ingress.yaml
 
+Homework Task 3.3
+
+* Create deploy with emptyDir, save data to mountPoint emptyDir, delete pods, check data.
+
+- kubectl apply -f emptydir-deployment.yaml
+
 # Task 3
 ### [Read more about CSI](https://habr.com/ru/company/flant/blog/424211/)
 ### Create pv in kubernetes
