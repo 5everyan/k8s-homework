@@ -17,6 +17,13 @@ Homework Task 3.3
 
 - kubectl apply -f emptydir-deployment.yaml
 
+Homework Task 3.4
+
+* Optional. Raise an nfs share on a remote machine. Create a pv using this share, create a pvc for it, create a deployment. Save data to the share, delete the deployment, delete the pv/pvc, check that the data is safe.
+
+- kubectl apply -f deployment-with-nfs.yaml
+
+
 # Task 3
 ### [Read more about CSI](https://habr.com/ru/company/flant/blog/424211/)
 ### Create pv in kubernetes
